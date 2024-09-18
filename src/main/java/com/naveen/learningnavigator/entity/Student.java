@@ -1,5 +1,6 @@
 package com.naveen.learningnavigator.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,6 +32,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
+    @JsonManagedReference
     private Set<Subject> subjects = new HashSet<>();
 
     // Many-to-Many relationship with Exam
@@ -40,6 +42,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "exam_id")
     )
+    @JsonManagedReference
     private Set<Exam> exams = new HashSet<>();
 
 }

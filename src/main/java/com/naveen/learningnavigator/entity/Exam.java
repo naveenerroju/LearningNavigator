@@ -1,5 +1,6 @@
 package com.naveen.learningnavigator.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,10 +25,12 @@ public class Exam {
     // Many-to-One relationship with Subject
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id")
+    @JsonBackReference
     private Subject subject;
 
     // Many-to-Many relationship with Student
     @ManyToMany(mappedBy = "exams")
+    @JsonBackReference
     private Set<Student> students = new HashSet<>();
 
 }
