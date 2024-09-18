@@ -25,6 +25,17 @@ public class ExamController {
         return new ResponseEntity<>(exam, HttpStatus.CREATED);
     }
 
+
+    /**
+     * This API is not working. The error is:
+     * com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS)
+     *
+     * <br>
+     * The reason could be the JsonBackReference annotation in the entities.
+     * @param examId
+     * @param studentId
+     * @return
+     */
     @PostMapping("/{examId}/{studentId}")
     public ResponseEntity<Student> enrollExam(
             @PathVariable(name = "examId") Long examId,
