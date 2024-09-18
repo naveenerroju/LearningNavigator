@@ -15,12 +15,13 @@ public class SubjectService implements ISubjectService{
 
     @Autowired
     private SubjectRepository repository;
-    @Autowired
-    private ModelMapper modelMapper;
 
     @Override
     public Subject addSubject(AddSubjectDto subject) {
-        Subject subjectEntity =modelMapper.map(subject, Subject.class);
+        Subject subjectEntity = new Subject();
+        subjectEntity.setSubjectId(subject.getSubjectId());
+        subjectEntity.setSubjectName(subject.getSubjectName());
+
         return repository.save(subjectEntity);
     }
 

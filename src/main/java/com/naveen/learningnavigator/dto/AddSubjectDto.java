@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AddSubjectDto {
     @NotNull
-    private int subjectId;
+    private Long subjectId;
     @NotEmpty
     private String subjectName;
 }
