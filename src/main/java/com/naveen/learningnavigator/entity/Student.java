@@ -42,7 +42,6 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "exam_id")
     )
-    @JsonManagedReference
     private Set<Exam> exams = new HashSet<>();
 
 }

@@ -30,7 +30,6 @@ public class Exam {
 
     // Many-to-Many relationship with Student
     @ManyToMany(mappedBy = "exams")
-    @JsonBackReference
     private Set<Student> students = new HashSet<>();
 
 }
